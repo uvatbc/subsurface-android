@@ -1,0 +1,8 @@
+[submodule "subsurface"]
+	path = subsurface
+	url = https://github.com/Subsurface-divelog/subsurface.git
+	branch = master
+[submodule "libdivecomputer"]
+	path = libdivecomputer
+	url = https://github.com/Subsurface-divelog/libdc.git
+	branch = Subsurface-branch
