@@ -15,6 +15,8 @@ help:
 
 init:
 	git submodule update --init
+	cd libdivecomputer ; git checkout Subsurface-branch
+	cd subsurface      ; git checkout master
 
 update:
 	git submodule foreach git pull
