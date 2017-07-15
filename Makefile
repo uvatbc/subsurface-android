@@ -22,7 +22,7 @@ help:
 	@echo "make build"
 	@echo ""
 	@echo "To build (to use a pre-built environment):"
-	@echo "make build_in_docker"
+	@echo "make in_docker TARGET=build"
 
 init:
 	git submodule update --init
