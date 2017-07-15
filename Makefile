@@ -29,5 +29,4 @@ build_in_docker:
 		-it --rm \
 		-v $(GITROOT):/tmp/src \
 		accupara/subsurface:android \
-		/bin/bash -c \
-		"cd /tmp/src/ ; ./subsurface/packaging/android/build.sh"
+		make -C /tmp/src build
