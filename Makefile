@@ -9,6 +9,8 @@ LIBUSB_VERSION=1.0.20
 OPENSSL_VERSION=1.0.2l
 LIBFTDI_VERSION=1.3
 
+ARCH?=arm
+
 help:
 	@echo "On the first run:"
 	@echo "make init"
@@ -37,6 +39,9 @@ get_tars:
 	wget -O libusb-${LIBUSB_VERSION}.tar.gz https://github.com/libusb/libusb/archive/v${LIBUSB_VERSION}.tar.gz
 	wget -O libftdi1-${LIBFTDI_VERSION}.tar.bz2 http://www.intra2net.com/en/developer/libftdi/download/libftdi1-${LIBFTDI_VERSION}.tar.bz2
 
+get_ndk:
+	"$$ANDROID_NDK_ROOT/build/tools/make_standalone_toolchain.py" --arch="$(ARCH)" --install-dir=ndk-"$(ARCH)" --api=16
+
 update:
 	git submodule foreach git pull
 
@@ -45,9 +50,9 @@ build:
 	cd libdivecomputer ; autoreconf --install # Twice because the build wrapper has it
 	./subsurface/packaging/android/build.sh
 
-build_in_docker:
+in_docker:
 	docker run \
 		-it --rm \
 		-v $(GITROOT):/tmp/src \
 		accupara/subsurface:android \
-		make -C /tmp/src build
+		make -C /tmp/src $(TARGET)
