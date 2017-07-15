@@ -1,3 +1,5 @@
+GITROOT?=$(shell git rev-parse --show-toplevel)
+
 help:
 	@echo "On the first run:"
 	@echo "make init"
