@@ -30,13 +30,21 @@ init:
 	cd subsurface      ; git checkout master
 
 get_tars:
+	-rm sqlite-autoconf-${SQLITE_VERSION}.tar.gz
 	wget http://www.sqlite.org/2017/sqlite-autoconf-${SQLITE_VERSION}.tar.gz
+	-rm libxml2-${LIBXML2_VERSION}.tar.gz
 	wget ftp://xmlsoft.org/libxml2/libxml2-${LIBXML2_VERSION}.tar.gz
+	-rm libxslt-${LIBXSLT_VERSION}.tar.gz
 	wget ftp://xmlsoft.org/libxml2/libxslt-${LIBXSLT_VERSION}.tar.gz
+	-rm libzip-${LIBZIP_VERSION}.tar.gz
 	wget http://www.nih.at/libzip/libzip-${LIBZIP_VERSION}.tar.gz
+	-rm openssl-${OPENSSL_VERSION}.tar.gz
 	wget -O openssl-${OPENSSL_VERSION}.tar.gz http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
+	-rm libgit2-${LIBGIT2_VERSION}.tar.gz
 	wget -O libgit2-${LIBGIT2_VERSION}.tar.gz https://github.com/libgit2/libgit2/archive/v${LIBGIT2_VERSION}.tar.gz
+	-rm libusb-${LIBUSB_VERSION}.tar.gz
 	wget -O libusb-${LIBUSB_VERSION}.tar.gz https://github.com/libusb/libusb/archive/v${LIBUSB_VERSION}.tar.gz
+	-rm libftdi1-${LIBFTDI_VERSION}.tar.bz2
 	wget -O libftdi1-${LIBFTDI_VERSION}.tar.bz2 http://www.intra2net.com/en/developer/libftdi/download/libftdi1-${LIBFTDI_VERSION}.tar.bz2
 
 get_ndk:
