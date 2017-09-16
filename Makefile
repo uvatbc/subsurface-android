@@ -48,7 +48,12 @@ get_tars:
 	wget -O libftdi1-${LIBFTDI_VERSION}.tar.bz2 http://www.intra2net.com/en/developer/libftdi/download/libftdi1-${LIBFTDI_VERSION}.tar.bz2
 
 get_ndk:
-	"$$ANDROID_NDK_ROOT/build/tools/make_standalone_toolchain.py" --arch="$(ARCH)" --install-dir=ndk-"$(ARCH)" --api=16
+	@if [ -d ndk-$(ARCH) ] ; then \
+		echo "ndk-$(ARCH) already exists" ; \
+	else \
+		echo "Making standalone toolchain: ndk-$(ARCH)" ; \
+		"$$ANDROID_NDK_ROOT/build/tools/make_standalone_toolchain.py" "--arch=$(ARCH)" "--install-dir=ndk-$(ARCH)" --api=16 ; \
+	fi
 
 update:
 	git submodule foreach git pull

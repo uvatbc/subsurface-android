@@ -8,3 +8,5 @@ openssl-1.0.2l.tar.gz
 sqlite-autoconf-3190200.tar.gz
 
 ndk-arm/
+
+crave.conf
